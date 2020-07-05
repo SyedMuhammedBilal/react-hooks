@@ -1,15 +1,17 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
+import Message from './Message';
 import './App.css';
 
 function App() {
-  let [ count, setCount ] = useState(1)
+  let [ count, setCount ] = useState(0)
+  let [ dark, setDark ] = useState(true)
 
   return (
-    <div>
-      <h3>The value of count is: {count}</h3>
+    <div className={`box ${dark ? 'darkMode': ''}`}>
+      <Message counter={count} />
       <br />
       <button onClick={() => setCount(++count)}>Increment</button>
+      <button onClick={() => setDark(!dark)}>Dark Mode</button>
     </div>
   );
 }
